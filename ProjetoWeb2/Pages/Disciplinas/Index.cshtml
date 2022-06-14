@@ -4,20 +4,22 @@
 @{
     ViewData["Title"] = "Disciplinas";
 }
-
+<link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="/wwwroot/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 <h1>Disciplinas</h1>
 
+
 <p>
-    <a asp-page="Create">Criar Nova</a>
+    <a asp-page="Create"><button class="btn btn-primary">Criar Nova</button></a>
 </p>
 <style>
 table, th, td {
   border:1px solid black;
 }
 </style>
-<table class="table">
+<table class="table table-bordered table-striped">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th>
                 @Html.DisplayNameFor(model => model.Disciplina[0].Nome)
             </th>
@@ -45,10 +47,10 @@ table, th, td {
             <th>
                 @Html.DisplayNameFor(model => model.Disciplina[0].qtdPratica)
             </th>
-            <th>
+            <th class="col-xs-1 text-center">
                 @Html.DisplayNameFor(model => model.Disciplina[0].Ementa)
             </th>
-            <th></th>
+            <th class="col-xs-3 text-center">Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -85,9 +87,9 @@ table, th, td {
                 @Html.DisplayFor(modelItem => item.Ementa)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Apagar</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id"><button class="btn btn-primary"><i class="fa fa-floppy-o"></i>E</button></a> |
+                <a asp-page="./Details" asp-route-id="@item.Id"><button class="btn btn-primary"><i class="fa fa-floppy-o"></i>D</button></a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id"><button class="btn btn-primary"><i class="fa fa-floppy-o"></i>X</button></a>
             </td>
         </tr>
 }
