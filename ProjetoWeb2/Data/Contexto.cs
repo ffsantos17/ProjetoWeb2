@@ -13,5 +13,7 @@ namespace ProjetoWeb2.Data
         public DbSet<Disciplina>? Disciplina { get; set; }
 
         public DbSet<ProjetoWeb2.PreRequisito>? PreRequisito { get; set; }
+
+        public DbSet<ProjetoWeb2.categoria>? categoria { get; set; }
     }
 }

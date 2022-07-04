@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using ProjetoWeb2;
 using ProjetoWeb2.Data;
 
-namespace ProjetoWeb2.Pages.Disciplinas
+namespace ProjetoWeb2.Pages.Categoria
 {
     public class CreateModel : PageModel
     {
@@ -19,35 +18,25 @@ namespace ProjetoWeb2.Pages.Disciplinas
         {
             _context = context;
         }
-        public IList<categoria> vListCategoria { get; set; } = default!;
 
         public IActionResult OnGet()
         {
-            
             return Page();
         }
 
         [BindProperty]
-        public Disciplina Disciplina { get; set; } = default!;
-
-        public async Task OnGetAsync()
-        {
-            if (_context.categoria != null)
-            {
-                vListCategoria = await _context.categoria.ToListAsync();
-            }
-        }
+        public categoria categoria { get; set; } = default!;
+        
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-
-            if (!ModelState.IsValid || _context.Disciplina == null || Disciplina == null)
+          if (!ModelState.IsValid || _context.categoria == null || categoria == null)
             {
                 return Page();
             }
 
-            _context.Disciplina.Add(Disciplina);
+            _context.categoria.Add(categoria);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
